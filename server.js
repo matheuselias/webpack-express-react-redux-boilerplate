@@ -10,12 +10,11 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
-const router = express.Router();
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json({ type: '*/*' }));
-app.use('/api', router);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 consign({cwd: 'app'})
   .include('models')

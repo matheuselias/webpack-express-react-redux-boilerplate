@@ -1,0 +1,1 @@
+export const FETCH_MESSAGE = 'FETCH_MESSAGE';
